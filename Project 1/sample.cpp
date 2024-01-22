@@ -410,12 +410,12 @@ Display( )
 
 	// set the uniform variables that will change over time:
 
-	NowS0 = 0.5f;
-	NowT0 = 0.5f;
-	NowD  = 0.25f;
-	Pattern.SetUniformVariable( "uS0", NowS0 );
-	Pattern.SetUniformVariable( "uT0", NowT0 );
-	Pattern.SetUniformVariable( "uD" , NowD  );
+	//NowS0 = 0.5f;
+	//NowT0 = 0.5f;
+	//NowD  = 0.25f;
+	//Pattern.SetUniformVariable( "uS0", NowS0 );
+	//Pattern.SetUniformVariable( "uT0", NowT0 );
+	//Pattern.SetUniformVariable( "uD" , NowD  );
 
 	glCallList( SphereList );
 

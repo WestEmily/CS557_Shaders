@@ -1,0 +1,5 @@
+
+ERROR: 0:38: 'VST' : undeclared identifier 
+ERROR: 0:38: 's' : field selection requires structure, vector, or matrix on left hand side 
+
+

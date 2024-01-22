@@ -1,4 +1,8 @@
 
-0(47) : error C1038: declaration of "d" conflicts with previous declaration at 0(37)
-0(50) : error C1038: declaration of "s" conflicts with previous declaration at 0(29)
+ERROR: 0:43: 'fprintf' : undeclared identifier 
+ERROR: 0:43: 'stderr' : undeclared identifier 
+ERROR: 0:43: '' : illegal character (") (0x22)
+ERROR: 0:43: 'Inside' : undeclared identifier 
+ERROR: 0:43: 'if' : syntax error syntax error
+
 

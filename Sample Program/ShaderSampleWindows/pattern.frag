@@ -3,8 +3,8 @@
 
 // lighting uniform variables -- these can be set once and left alone:
 uniform float   uKa, uKd, uKs;	 // coefficients of each type of lighting -- make sum to 1.0
-uniform vec3    uColor;		 // object color
-uniform vec3    uSpecularColor;	 // light color
+uniform vec4    uColor;		 // object color
+uniform vec4    uSpecularColor;	 // light color
 uniform float   uShininess;	 // specular exponent
 
 // square-equation uniform variables -- these should be set every time Display( ) is called:
@@ -27,7 +27,7 @@ main( )
 
 	// determine the color using the square-boundary equations:
 
-	vec3 myColor = uColor;
+	vec3 myColor = uColor.rgb;
 	if( uS0-uD/2. <= s  &&  s <= uS0+uD/2.  &&  uT0-uD/2. <= t  &&  t <= uT0+uD/2. )
 	{
 		myColor = vec3( 1., 0., 0. );;
@@ -50,7 +50,7 @@ main( )
 		vec3 ref = normalize(  reflect( -Light, Normal )  );
 		ss = pow( max( dot(Eye,ref),0. ), uShininess );
 	}
-	vec3 specular = uKs * ss * uSpecularColor;
+	vec3 specular = uKs * ss * uSpecularColor.rgb;
 	gl_FragColor = vec4( ambient + diffuse + specular,  1. );
 }
 
