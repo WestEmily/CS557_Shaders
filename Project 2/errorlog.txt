@@ -1,0 +1,5 @@
+
+ERROR: 0:67: 'd' : undeclared identifier 
+ERROR: 0:94: 'd' : redefinition 
+
+
