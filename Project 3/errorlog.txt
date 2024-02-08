@@ -1,0 +1,8 @@
+
+ERROR: 0:72: 'myColor' : undeclared identifier 
+ERROR: 0:72: '=' :  cannot convert from 'highp float' to '3-component vector of highp float'
+ERROR: 0:81: '=' :  cannot convert from 'highp float' to '3-component vector of highp float'
+ERROR: 0:82: 'mySpecularColor' : undeclared identifier 
+ERROR: 0:82: '=' :  cannot convert from 'highp float' to '3-component vector of highp float'
+
+
