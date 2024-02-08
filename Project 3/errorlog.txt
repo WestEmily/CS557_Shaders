@@ -1,8 +1,4 @@
 
-ERROR: 0:72: 'myColor' : undeclared identifier 
-ERROR: 0:72: '=' :  cannot convert from 'highp float' to '3-component vector of highp float'
-ERROR: 0:81: '=' :  cannot convert from 'highp float' to '3-component vector of highp float'
-ERROR: 0:82: 'mySpecularColor' : undeclared identifier 
-ERROR: 0:82: '=' :  cannot convert from 'highp float' to '3-component vector of highp float'
+ERROR: 0:83: '+' : wrong operand types no operation '+' exists that takes a left-hand operand of type '3-component vector of highp float' and a right operand of type '4-component vector of highp float' (or there is no acceptable conversion)
 
 

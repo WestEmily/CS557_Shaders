@@ -9,7 +9,7 @@ uniform sampler2D Noise2;
 uniform sampler3D Noise3;
 
 uniform float uLightX, uLightY, uLightZ;
-uniform vec3 uColor, uSpecularColor;
+uniform vec4 uColor, uSpecularColor;
 
 // in variables from the vertex shader:
 in vec2 vST; // texture cords
@@ -53,7 +53,7 @@ main( )
 	vec3 Light = normalize(vL);
 	vec3 Eye = normalize(vE);
 
-
+	// bump-mapping
 	vec4 nvx = texture( Noise3, uNoiseFreq*vMCposition );
 	float angx = nvx.r + nvx.g + nvx.b + nvx.a  -  2.;	// -1. to +1.
 	angx *= uNoiseAmp;
@@ -62,23 +62,32 @@ main( )
 	float angy = nvy.r + nvy.g + nvy.b + nvy.a  -  2.;	// -1. to +1.
 	angy *= uNoiseAmp;
 
-	newColor = vec3(1., .7, 0.);
-
 	vec3 n = RotateNormal( angx, angy, vN );
 	n = normalize(  gl_NormalMatrix * n  );
 
+
+	newColor = vec3(1., .7, 0.);
+	vec3 newSpecular = vec3(1., 1., 1.); // uSpecular
 
 	// here is the per-fragment lighting:
 	vec3 ambient = uKa * newColor;
 	float d = 0.;
 	float s = 0.;
-	if( dot(Normal,Light) > 0. ) // only do specular if the light can see the point
+	if( dot(n,Light) > 0. ) // only do specular if the light can see the point
 	{
-		d = dot(Normal,Light);
-		vec3 ref = normalize( reflect( -Light, Normal ) ); // reflection vector
+		d = dot(n,Light);
+		vec3 ref = normalize( reflect( -Light, n ) ); // reflection vector
 		s = pow( max( dot(Eye,ref),0. ), uShininess );
 	}
 	vec3 diffuse =  uKd * d * newColor;
-	vec3 specular = uKs * s * uSpecularColor;
-	gl_FragColor = vec4( ambient + diffuse + specular, 1. );
+	vec3 specular = uKs * s * newSpecular;
+	vec4 FragColor = vec4( ambient + diffuse + specular, 1. );
+	//gl_FragColor = vec4( ambient + diffuse + specular, 1. );
+
+	float LightIntensity = abs( dot( normalize(vec3(uLightX,uLightY,uLightZ) - vMCposition), n ) );
+	if( LightIntensity < 0.1 )
+		LightIntensity = 0.1;
+
+	gl_FragColor = vec4( LightIntensity*FragColor );
+
 }
