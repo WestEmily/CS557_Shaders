@@ -1,0 +1,5 @@
+
+ERROR: 0:76: 'assign' : l-value required "vST" (cannot modify a varying)
+ERROR: 0:77: 'assign' : l-value required "vST" (cannot modify a varying)
+
+
