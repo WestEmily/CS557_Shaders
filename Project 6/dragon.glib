@@ -1,0 +1,18 @@
+##OpenGL GLIB
+
+Perspective 70
+LookAt 0 0 8  0 0 0  0 1 0
+
+
+Vertex	 	dragon.vert
+Fragment	dragon.frag
+Program 	dragon                                 \
+                uKa <0. 0.1 1.0>                \
+                uKd <0. 0.6 1.0>                \
+                uKs <0. 0.3 1.0>                \
+                uShininess <3. 10. 1000.>       
+
+PushMatrix
+Scale 0.1
+Obj dragon010.obj
+PopMatrix
