@@ -6,6 +6,7 @@ in vec2 vST; // texture cords
 in vec3 vN; // normal vector
 in vec3 vL; // vector from point to light
 in vec3 vE; // vector from point to eye
+in vec3 vXYZ;
 
 void main( )
 {
@@ -13,9 +14,15 @@ void main( )
 	vec3 Light = normalize(vL);
 	vec3 Eye = normalize(vE);
 	vec3 myColor = vec3( 0.2, 0.4, 0.75 ); // default color
+	// vec3 myColor = vec3(1., 1., 1.);
 	vec3 mySpecularColor = vec3( 1.0, 1.0, 1.0 ); // specular highlight color
 
 	// << possibly change myColor >>
+	// vXYZ.y >= 12. && abs(vXYZ.x) >= 3.85 || 
+	if (vXYZ.y >= 12. && abs(vXYZ.x) >= 3.85 || vXYZ.z <= -5. && abs(vXYZ.x) >= 3.)
+	{
+		myColor = vec3(1., 0., 0.);
+	}
 
 	vec3 ambient = uKa * myColor;
 	float d = 0.;
@@ -25,7 +32,7 @@ void main( )
 	{
 		d = dot(Normal,Light);
 		vec3 ref = normalize( reflect( -Light, Normal ) ); // reflection 
-		// vec3 vectors = pow( max( dot(Eye,ref),0. ), uShininess );
+		s = pow( max( dot(Eye,ref),0. ), uShininess );
 	}
 
 	vec3 diffuse = uKd * d * myColor;
