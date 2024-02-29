@@ -22,43 +22,27 @@ main( )
 	vec3 normal0 = gl_Normal;
 	vec3 normal = gl_Normal;
 
-	float radius = 1. - vST.t;
-	float theta = TWOPI * vST.s;
-	vec4 circle = vec4(radius*cos(theta), radius*sin(theta), 0., 1.);
-	vec3 circlenorm = vec3( 0., 0., 1. );
-
-
-	// if ( var is higher than starting point, trasnform into rectangle)
-
-	// if (var is lower than starting point, tranform into sphere)
-	//if (uMorph < 0.)
-	//{
-		if (vXYZ.y >= 12. && abs(vXYZ.x) >= 3.85 || vXYZ.z <= -5. && abs(vXYZ.x) >= 3.)
+		if (vXYZ.y >= 12. && vXYZ.x >= 3.85 || vXYZ.z <= -5. && vXYZ.x >= 3.)
 		{	
-			// blend
-			// vec4 vertex = mix(gl_Vertex, circle, abs(uMorph));
-			// vec3 normal = normalize( mix(normal0, circlenorm, abs(uMorph)));
+			vec4 newVertex = gl_Vertex;
+			// newVertex.xyz *= 16. / length(vertex.xyz);
 
-			// vertex = mix(gl_Vertex, circle, 0.5);
-			// normal = normalize( mix(normal0, circlenorm, 0.5));
+			float angle = 0.7;
+			newVertex.xy *= mat2(cos(angle), -sin(angle), sin(angle), cos(angle));		// from https://www.youtube.com/watch?v=ssqTWRQwXVo
+			newVertex.x += 10.;
 
-			// vertex.xyz *= abs(uMorph) / length(vertex.xyz);
+			vertex = mix(gl_Vertex, newVertex, -uMorph);
+		} else if (vXYZ.y >= 12. && -vXYZ.x >= 3.85 || vXYZ.z <= -5. && -vXYZ.x >= 3.)
+		{
+			vec4 newVertex = gl_Vertex;
+			// newVertex.xyz *= 16. / length(vertex.xyz);
 
-			// vertex.y += pow(uMorph, 2.) ;
-			vertex.y = mix(vertex.y, pow(vertex.y, 2.), uMorph);
+			float angle = -0.7;
+			newVertex.xy *= mat2(cos(angle), -sin(angle), sin(angle), cos(angle));		// from https://www.youtube.com/watch?v=ssqTWRQwXVo
+			newVertex.x -= 10.;
 
+			vertex = mix(gl_Vertex, newVertex, -uMorph);
 		}
-	//}
-
-	
-	
-
-	// if (vXYZ.y >= 12. && abs(vXYZ.x) >= 3.85 || vXYZ.z <= -5. && abs(vXYZ.x) >= 3.)
-	// {
-	//		myColor = vec3(1., 0., 0.);
-	// }
-
-	// if (var is at starting point, do nothing)
 
 
 	vN = normalize( gl_NormalMatrix * normal ); // normal vector

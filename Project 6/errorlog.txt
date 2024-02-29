@@ -1,4 +1,7 @@
 
-ERROR: 0:50: '}' : syntax error syntax error
+ERROR: 0:47: 'normal' : undeclared identifier 
+ERROR: 0:47: 'normalize' : no matching overloaded function found (using implicit conversion) 
+ERROR: 0:47: 'normalize' : function is not known 
+ERROR: 0:47: 'assign' :  cannot convert from 'const highp float' to 'varying 3-component vector of highp float'
 
 

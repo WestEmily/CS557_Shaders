@@ -10,12 +10,12 @@ Program 	dragon                                 \
                 uKa <0. 0.1 1.0>                \
                 uKd <0. 0.6 1.0>                \
                 uKs <0. 0.3 1.0>                \
-                uShininess <3. 10. 1000.>       \
-                uMorph <-1. 0. 1.>
+                uShininess <3. 10. 500.>       \
+                uMorph <0. 0. 1.>
 
 PushMatrix
 Scale 0.1
-Obj dragon010.obj
+Obj dragon138.obj
 PopMatrix
 
 PushMatrix
