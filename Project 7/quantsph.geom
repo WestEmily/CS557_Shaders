@@ -12,6 +12,7 @@ uniform float	uDiam;		// diameter of the spheres
 out vec3	gN;		 // normal vector
 out vec3	gL;		 // vector from point to light
 out vec3	gE;		 // vector from point to eye
+out float   gZ;
 
 vec3  V0, V1, V2;
 vec3  V01, V02;
@@ -44,6 +45,7 @@ ProduceVertex( float s, float t )
     v = v + CG;                     // put v back in the global space (ie, un-do the second line of code)
 
 	vec4 ECposition = gl_ModelViewMatrix * vec4(v,1.);
+    gZ = -ECposition.z;
 
     vec3 n = cross(CG, v);		// on a sphere, the normal is a vector from the sphere center (CG) to the vertex
     // vec3 n = v;

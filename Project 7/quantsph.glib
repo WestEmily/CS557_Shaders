@@ -9,6 +9,9 @@ Program QuantSph                                        \
         uLevel <0 3 5>                                  \
         uDiam <0.01 0.5 1.0>                            \
         uQuantize <0.5 2. 6.>                           \
+        uChroma <0 0 1>                                 \
+        uRedDepth < -10. 2. 10. >                         \
+        uBlueDepth < -10. 4. 10. >                         \
         uKa <0. .1 1.>                                  \
         uKd <0. .6 1.>                                  \
         uKs <0. .3 1.>                                  \

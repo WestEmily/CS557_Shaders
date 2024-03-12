@@ -1,4 +1,5 @@
 
-ERROR: 0:43: 'vec4' : syntax error syntax error
+ERROR: 0:73: 'uRedDepth' : undeclared identifier 
+ERROR: 0:73: 'uBlueDepth' : undeclared identifier 
 
 
