@@ -1,0 +1,4 @@
+
+ERROR: 0:43: 'vec4' : syntax error syntax error
+
+
