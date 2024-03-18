@@ -17,12 +17,7 @@ Program  FindXYZ  				\
 			uZ <-5. 0. 50.>		\
 			uDz <0. 3. 5.>
 
-PushMatrix
-Scale 0.05
-# Translate 0. -15. 0.
-Color 1. 1. 1.
-Obj dragon010.obj
-PopMatrix
-#Teapot
-#Sphere
+scale 0.75
+rotate 90 0 0 1
+Obj windus_lightsaber.obj
  
