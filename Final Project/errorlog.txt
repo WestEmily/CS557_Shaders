@@ -1,4 +1,4 @@
 
-ERROR: 0:39: 'x' : undeclared identifier 
+ERROR: 0:55: 'assign' :  cannot convert from '4-component vector of highp float' to '3-component vector of highp float'
 
 

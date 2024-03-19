@@ -3,16 +3,18 @@
 Perspective 90
 LookAt 0 0 2  0 0 0  0 1 0
 
-Vertex		lightsaber.vert
-Fragment	lightsaber.frag
-Program Lightsaber						\
+Vertex lightsaber.vert
+Fragment lightsaber.frag
+Program bloom \
+		uTexUnit 6					\
 		uAd <.001 .1 .5>			\
 		uBd <.001 .1 .5>			\
 		uKa <0. 0.1 1.0>			\
 		uKd <0. 0.6 1.0>			\
 		uKs <0. 0.5 1.0>			\
-		uShininess <0.5 2. 50.>		
-		# uMix <0. 0.5 1.>
+		uShininess <0.5 2. 50.>		\
+		uBlurRadius <0. 5. 50.>		\
+		kernelSize <0 5 50>
 
 #Color 0.1 .4 0.8
 scale 0.75
