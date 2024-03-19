@@ -6,7 +6,7 @@ uniform float uShininess; // specular exponent
 // these have to be set dynamically from glman sliders or keytime animations:
 uniform float uAd, uBd;
 // uniform float uTol;
-uniform float uMix;
+// uniform float uMix;
 
 // in variables from the vertex shader:
 in vec2 vST; // texture cords

@@ -8,12 +8,11 @@ Fragment	lightsaber.frag
 Program Lightsaber						\
 		uAd <.001 .1 .5>			\
 		uBd <.001 .1 .5>			\
-		uTol <0. 0. 1.>				\
 		uKa <0. 0.1 1.0>			\
 		uKd <0. 0.6 1.0>			\
 		uKs <0. 0.5 1.0>			\
-		uShininess <0.5 2. 50.>		\
-		uMix <0. 0.5 1.>
+		uShininess <0.5 2. 50.>		
+		# uMix <0. 0.5 1.>
 
 #Color 0.1 .4 0.8
 scale 0.75
