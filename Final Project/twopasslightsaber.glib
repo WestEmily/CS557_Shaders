@@ -7,31 +7,6 @@ Background 0. 0. 0.
 Clear
 LookAt 0. 0. 3. 0. 0. 0. 0. 1. 0.
 
-Vertex lightsaberBloom.vert
-Fragment lightsaberBloom.frag
-Program bloom \
-		uTexUnit 6					\
-		uAd <.001 .1 .5>			\
-		uBd <.001 .1 .5>			\
-		uKa <0. 0.1 1.0>			\
-		uKd <0. 0.6 1.0>			\
-		uKs <0. 0.5 1.0>			\
-		uShininess <0.5 2. 50.>		\
-		uBlurRadius <0. 5. 50.>	
-	
-
-PushMatrix
-	scale 0.75
-	rotate 90 0 0 1
-	Obj windus_lightsaber.obj
-PopMatrix
-
-
-
-RenderToTexture 			# render to the display monitor
-Background 0. 0. 0.
-Clear
-LookAt 0. 0. 3. 0. 0. 0. 0. 1. 0.
 
 Vertex lightsaber.vert
 Fragment lightsaber.frag
@@ -44,10 +19,30 @@ Program lightsaber 	\
 		uShininess <0.5 2. 50.>	
 
 
-
-#QuadXY 2. 2.
-PushMatrix
-	scale 0.75
+#QuadXY 10. 10.
+#PushMatrix
+	scale 0.80
 	rotate 90 0 0 1
 	Obj windus_lightsaber.obj
-PopMatrix
+#PopMatrix
+
+
+
+RenderToTexture 			# render to the display monitor
+Background 0. 0. 0.
+Clear
+LookAt 0. 0. 3. 0. 0. 0. 0. 1. 0.
+
+Vertex blur.vert
+Fragment blur.frag
+Program bloom \
+		uTexUnit 6					\
+		uBlurRadius <0. 5. 50.>	
+	
+
+QuadXY 2. 2.
+#PushMatrix
+#	scale 0.75
+#	rotate 90 0 0 1
+#	Obj windus_lightsaber.obj
+#PopMatrix

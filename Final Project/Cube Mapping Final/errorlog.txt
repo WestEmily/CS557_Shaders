@@ -1,0 +1,5 @@
+
+ERROR: 0:80: 'vMCposition' : undeclared identifier 
+ERROR: 0:80: 'x' : field selection requires structure, vector, or matrix on left hand side 
+
+

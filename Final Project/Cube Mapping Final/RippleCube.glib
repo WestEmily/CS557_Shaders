@@ -1,0 +1,49 @@
+##OpenGL GLIB
+Perspective 70
+LookAt 0 0 3  0 0 0  0 1 0
+
+
+Vertex texture.vert
+Fragment texture.frag
+Program Texture TexUnit 6
+PushMatrix
+Translate 0. 7.5 0.
+#Texture2D 6 purple.bmp
+#QuadYZ 5. 5. 10 10
+#Texture2D 6 purple.bmp
+#QuadYZ -5. 5. 10 10
+#Texture2D 6 purple.bmp
+#QuadXZ 5. 5. 10 10
+#Texture2D 6 purple.bmp
+#QuadXZ -5. 5. 10 10
+#Texture2D 6 purple.bmp
+#QuadXY 5. 5. 10 10
+#Texture2D 6 purple.bmp
+#QuadXY -5. 5. 10 10
+
+
+CubeMap 6 purple.bmp purple.bmp  purple.bmp purple.bmp   purple.bmp purple.bmp
+
+CubeMap 7 purple.bmp purple.bmp  purple.bmp purple.bmp   purple.bmp purple.bmp
+PopMatrix
+
+Vertex		ripplecube.vert
+Fragment	ripplecube.frag
+Program    	RippleCube			        \
+           	    uReflectUnit 6             	\
+           	    uRefractUnit 7             	\
+			    uA <0.0 0.00 1.0>           \
+                uB <0.1 0.6 3.0>            \
+                uC <0. 0. 6.28>             \
+                uD <0. 0. 2.>               \
+        	    uNoiseAmp <0. 0. 5.>		\
+        	    uNoiseFreq <0.0 0.1 0.5>	\
+			    uEta 1.2			        \
+			    uMix <0. 0. 1.>			    \
+			    uWhiteMix 0.3
+
+PushMatrix
+	scale 0.80
+	rotate 90 0 0 1
+	Obj windus_lightsaber.obj
+PopMatrix

@@ -54,20 +54,21 @@ main( )
 		myColor = WHITE;
 
 		// blur algorithm
-		vec2 texelSize = 1.0 / screenSize;
-    	vec2 texCoord = gl_FragCoord.xy / screenSize;
-		blurColor = vec4(PURPLE, 1.0);
-		for (int i = -kernelSize; i <= kernelSize; ++i) {
-			for (int j = -kernelSize; j <= kernelSize; ++j) {
-				vec2 offset = vec2(i, j) * texelSize;
-				blurColor += texture(uTexUnit, texCoord + offset);
-			}
-		}
-		blurColor /= float((2 * kernelSize + 1) * (2 * kernelSize + 1));
+		//vec2 texelSize = 1.0 / screenSize;
+    	//vec2 texCoord = gl_FragCoord.xy / screenSize;
+		//blurColor = vec4(PURPLE, 1.0);
+		//for (int i = -kernelSize; i <= kernelSize; ++i) {
+		//	for (int j = -kernelSize; j <= kernelSize; ++j) {
+		//		vec2 offset = vec2(i, j) * texelSize;
+		//		blurColor += texture(uTexUnit, texCoord + offset);
+		//	}
+		//}
+		//blurColor /= float((2 * kernelSize + 1) * (2 * kernelSize + 1));
 		
 		// Apply blur strength
-		blurColor *= uBlurRadius;
-				ambient = uKa * blurColor.xyz * 100.;
+		//  blurColor *= uBlurRadius;
+		blurColor = vec4(PURPLE, 1.);
+		ambient = uKa * PURPLE * 100.;
 
 		
 	} else {
@@ -79,7 +80,6 @@ main( )
 
 
 	// here is the per-fragment lighting:
-	
 	float d = 0.;
 	float s = 0.;
 	if( dot(Normal,Light) > 0. ) // only do specular if the light can see the point
